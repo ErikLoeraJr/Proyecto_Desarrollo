@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- Cambiado a "es" para español -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Carlos Daniel Huerta Silva , Erik Alejandro Loera Jr" />
+    <meta name="course" content="Proyecto de Desarrollo para Dispositivos Móviles" />
+    <meta name="teacher" content="MITC. Alejandro Ulises López Orozco" />
+    <meta name="university" content="Universidad Autónoma de Zacatecas - Campus Jalpa" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsCope - Tu Ventana a las Noticias</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- CORREGIDO: Solo una carga de CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <!-- CORREGIDO: Scripts movidos al final del body para mejor rendimiento -->
+</head>
+
+<body>
+    <!--Barra de navegacion-->
+    <nav class="navbar navbar-expand-sm bg-success justify-content-center navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">INTERNATIONAL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">NATIONAL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">SCIENCES</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">HEALTH</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--fin de la barra de navegacion-->
+
+    <!--Incio banner-->
+    <div class="banner-container">
+        <img src="imagenes/banner.jpg" alt="Banner NewsCope" class="img-fluid w-100">
+    </div>
+    <!--Fin del banner-->
+
+    <!--Encabezado y búsqueda-->
+    <section class="search-secction py-5">
+        <div class="container encabesado">
+            <div class="text-center mb-4">
+                <h1 class="display-4 fw-bold text-dark">NewsCope</h1>
+                <p class="text-muted small">Your window to the world of real-time news</p>
+            </div>
+        </div>
+
+        <!--Cuadro de busqueda-->
+        <div class="container my-4 text-center">
+            <div class="input-group mb-3">
+                <input type="text" id="searchText" class="form-control" placeholder="search source">
+                <button class="btn btn-success" onclick="obtenerNoticias()">search</button>
+            </div>
+
+            <div id="contenedorResultados" class="resultado-box mt-4 d-none">
+                <h3 class="fw-bold mb-3" id="titulo"></h3>
+                <div id="resultado"></div>
+            </div>
+        </div>
+        <!--fin del Cuadro de busqueda-->
+    </section>
+    <!--Fin del encabezado y búsqueda-->
+
+    <!-- News Summary -->
+    <div class="news-summary-container container p-4 mt-4">
+        <h4 class="fw-bold">News Summary</h4>
+        <p>Monday, November 9</p>
+
+        <!-- NOTICIA GRANDE (Horizontal completa tal como la imagen) -->
+        <div class="card noticia-horizontal p-3 mt-3">
+            <div class="row g-3 align-items-center">
+                <!-- Texto izquierda -->
+                <div class="col-lg-4 col-md-5 col-12">
+                    <h5 class="fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed dolores quasi ipsum
+                        alias excepturi quod. Dolorem possimus natus perspiciatis vero numquam.
+                    </p>
+                    <small class="text-muted">33 minutes ago | icons</small>
+                </div>
+
+                <!-- Imagen central -->
+                <div class="col-lg-5 col-md-4 col-12">
+                    <img src="imagenes/news1.JPG" class="img-central rounded" alt="Noticia 1">
+                </div>
+
+                <!-- Imagen derecha + texto -->
+                <div class="col-lg-3 col-md-3 col-12">
+                    <img src="imagenes/news2.JPG" class="img-right mb-2" alt="Noticia 2">
+                    <h6 class="fw-bold mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h6>
+                    <p class="small">Laborum at provident explicabo magni nisi modi dignissimos beatae possimus
+                        ullam architecto.</p>
+                    <small class="text-muted">1 day ago | icons</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- TARJETAS PEQUEÑAS -->
+        <div class="row mt-4">
+            <!-- Card 1 -->
+            <div class="col-md-4 col-sm-12 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <img src="imagenes/news3.JPG" class="card-img-top" style="height: 180px; object-fit: cover;" alt="Trofeo">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4 col-sm-12 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <img src="imagenes/news4.JPG" class="card-img-top" style="height: 180px; object-fit: cover;" alt="Inundacion">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 5 mins ago</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4 col-sm-12 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <img src="imagenes/news5.JPG" class="card-img-top" style="height: 180px; object-fit: cover;" alt="PC">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is another card with supporting text below.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 2 mins ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--fin de News Summary-->
+
+    <!-- Pie de página -->
+    <footer class="footer mt-5 py-4">
+        <div class="container text-center">
+            <small class="footer-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                © UAZ - Campus Jalpa
+            </small>
+        </div>
+    </footer>
+    <!-- Fin de pie de página -->
+
+    <!-- CORREGIDO: Scripts al final del body -->
+    <script src="js/script.js"></script>
+</body>
+</html>
